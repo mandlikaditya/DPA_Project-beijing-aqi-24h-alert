@@ -1,0 +1,6 @@
+.DS_Store
+.Rhistory
+.RDataTmp
+.Rproj.user/
+*.RData
+results/intermediate/featured_data.csv
