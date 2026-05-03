@@ -1,4 +1,4 @@
-# Beijing AQI — 24h Alert Prediction
+# Beijing AQI — 24hr Alert Prediction
 
 Five-level model ladder predicting whether each of 12 Beijing monitoring
 stations will exceed AQI > 150 (Lightly Polluted) 24 hours ahead.
