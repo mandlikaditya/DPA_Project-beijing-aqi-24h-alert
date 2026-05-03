@@ -1,0 +1,21 @@
+"Ratio","Model","Cost","FN","FP"
+"Equal (1:1)","Lv0 Persistence",21776,13709,8067
+"Equal (1:1)","Lv1 Logistic",20973,15031,5942
+"Equal (1:1)","Lv2 XGBoost",20674,17037,3637
+"Equal (1:1)","Lv3 +Spatial",19905,16102,3803
+"Equal (1:1)","Lv4 +Wind+Cluster",20393,14086,6307
+"Moderate (5:1)","Lv0 Persistence",56111,4267,34776
+"Moderate (5:1)","Lv1 Logistic",56774,4251,35519
+"Moderate (5:1)","Lv2 XGBoost",56826,3640,38626
+"Moderate (5:1)","Lv3 +Spatial",54732,3552,36972
+"Moderate (5:1)","Lv4 +Wind+Cluster",54826,3359,38031
+"Public health (10:1)","Lv0 Persistence",69498,1951,49988
+"Public health (10:1)","Lv1 Logistic",69240,1326,55980
+"Public health (10:1)","Lv2 XGBoost",69228,1969,49538
+"Public health (10:1)","Lv3 +Spatial",66248,1447,51778
+"Public health (10:1)","Lv4 +Wind+Cluster",65232,1639,48842
+"Severe (20:1)","Lv0 Persistence",89008,1951,49988
+"Severe (20:1)","Lv1 Logistic",79478,206,75358
+"Severe (20:1)","Lv2 XGBoost",75954,393,68094
+"Severe (20:1)","Lv3 +Spatial",73577,465,64277
+"Severe (20:1)","Lv4 +Wind+Cluster",74681,295,68781
