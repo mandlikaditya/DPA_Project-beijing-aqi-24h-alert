@@ -1,21 +1,25 @@
 "Ratio","Model","Cost","FN","FP"
-"Equal (1:1)","Lv0 Persistence",21776,13709,8067
-"Equal (1:1)","Lv1 Logistic",20973,15031,5942
-"Equal (1:1)","Lv2 XGBoost",20674,17037,3637
-"Equal (1:1)","Lv3 +Spatial",19905,16102,3803
-"Equal (1:1)","Lv4 +Wind+Cluster",20393,14086,6307
-"Moderate (5:1)","Lv0 Persistence",56111,4267,34776
-"Moderate (5:1)","Lv1 Logistic",56774,4251,35519
-"Moderate (5:1)","Lv2 XGBoost",56826,3640,38626
-"Moderate (5:1)","Lv3 +Spatial",54732,3552,36972
-"Moderate (5:1)","Lv4 +Wind+Cluster",54826,3359,38031
-"Public health (10:1)","Lv0 Persistence",69498,1951,49988
-"Public health (10:1)","Lv1 Logistic",69240,1326,55980
-"Public health (10:1)","Lv2 XGBoost",69228,1969,49538
-"Public health (10:1)","Lv3 +Spatial",66248,1447,51778
-"Public health (10:1)","Lv4 +Wind+Cluster",65232,1639,48842
-"Severe (20:1)","Lv0 Persistence",89008,1951,49988
-"Severe (20:1)","Lv1 Logistic",79478,206,75358
-"Severe (20:1)","Lv2 XGBoost",75954,393,68094
-"Severe (20:1)","Lv3 +Spatial",73577,465,64277
-"Severe (20:1)","Lv4 +Wind+Cluster",74681,295,68781
+"Equal (1:1)","Lv0 Persistence",4031,2956,1075
+"Equal (1:1)","Lv1 Logistic",3848,2730,1118
+"Equal (1:1)","Lv2 XGBoost",4487,2294,2193
+"Equal (1:1)","Lv3 +Spatial",4467,2035,2432
+"Equal (1:1)","Lv4 +Wind+Cluster",4424,1937,2487
+"Equal (1:1)","Lv5 +ERA5 Weather",4221,2065,2156
+"Moderate (5:1)","Lv0 Persistence",8420,855,4145
+"Moderate (5:1)","Lv1 Logistic",8997,205,7972
+"Moderate (5:1)","Lv2 XGBoost",7791,481,5386
+"Moderate (5:1)","Lv3 +Spatial",7749,393,5784
+"Moderate (5:1)","Lv4 +Wind+Cluster",7622,453,5357
+"Moderate (5:1)","Lv5 +ERA5 Weather",7509,398,5519
+"Public health (10:1)","Lv0 Persistence",11678,609,5588
+"Public health (10:1)","Lv1 Logistic",10421,72,9701
+"Public health (10:1)","Lv2 XGBoost",9598,121,8388
+"Public health (10:1)","Lv3 +Spatial",10085,51,9575
+"Public health (10:1)","Lv4 +Wind+Cluster",9115,89,8225
+"Public health (10:1)","Lv5 +ERA5 Weather",9944,62,9324
+"Severe (20:1)","Lv0 Persistence",17768,609,5588
+"Severe (20:1)","Lv1 Logistic",11088,13,10828
+"Severe (20:1)","Lv2 XGBoost",11336,9,11156
+"Severe (20:1)","Lv3 +Spatial",11080,38,10320
+"Severe (20:1)","Lv4 +Wind+Cluster",11058,31,10438
+"Severe (20:1)","Lv5 +ERA5 Weather",11313,5,11213

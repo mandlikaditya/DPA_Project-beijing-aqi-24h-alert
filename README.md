@@ -35,26 +35,26 @@ report.pdf         5-page project report
 
 ## R Scripts
 
-| Script                   | Purpose                                                  |
-|--------------------------|----------------------------------------------------------|
-| `data_pipeline.R`        | Orchestrator — sources all scripts in order               |
-| `clean_air_quality.R`    | Load 12 CSVs, LOCF gap-fill, AQI via HJ 633-2012        |
-| `statistical_tests.R`    | ANOVA for station and season effects                     |
-| `eda_plots.R`            | Trend line, heatmap, station comparison, correlation     |
-| `time_series_analysis.R` | STL decomposition of daily mean AQI                      |
-| `spatial_analysis.R`     | Station coordinates, spatial AQI map                     |
-| `clustering_analysis.R`  | K-means (k=3), WSS elbow plot, zone labeling, PCA viz    |
+| Script                   | Purpose                                                        |
+|--------------------------|----------------------------------------------------------------|
+| `data_pipeline.R`        | Orchestrator — sources all scripts in order                    |
+| `clean_air_quality.R`    | Load 12 CSVs, LOCF gap-fill, AQI via HJ 633-2012               |
+| `statistical_tests.R`    | ANOVA for station and season effects                           |
+| `eda_plots.R`            | Trend line, heatmap, station comparison, correlation           |
+| `time_series_analysis.R` | STL decomposition of daily mean AQI                            |
+| `spatial_analysis.R`     | Station coordinates, spatial AQI map                           |
+| `clustering_analysis.R`  | K-means (k=3), WSS elbow plot, zone labeling, PCA viz          |
 | `feature_engineering.R`  | Lags, rolling mean, wind U/V, neighbor pivot, cluster features |
-| `model_ladder.R`         | Lv0–Lv4 models, threshold tuning, cost & horizon analysis |
+| `model_ladder.R`         | Lv0–Lv4 models, threshold tuning, cost & horizon analysis      |
 
 ## Output Files
 
-| File                              | Contents                                      |
-|-----------------------------------|-----------------------------------------------|
+| File                                     | Contents                                      |
+|------------------------------------------|-----------------------------------------------|
 | `results/final/ladder_results.csv`       | F1, AUC, Prec@90Rec for all 5 model levels    |
 | `results/final/multi_horizon_results.csv`| Performance across 6h, 24h, 48h, 72h horizons |
 | `results/final/cost_results.csv`         | Cost at 1:1, 5:1, 10:1, 20:1 miss ratios      |
-| `results/final/feature_importance.csv`   | XGBoost gain for all Lv4 features              |
+| `results/final/feature_importance.csv`   | XGBoost gain for all Lv4 features             |
 
 ## Data
 
