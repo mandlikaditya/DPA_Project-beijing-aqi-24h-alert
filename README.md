@@ -1,10 +1,9 @@
-# Beijing AQI — 24hr Alert Prediction
+# Beijing AQI — 24h Alert Prediction
 
-Five-level model ladder predicting whether each of 12 Beijing monitoring
+Six-level model ladder predicting whether each of 12 Beijing monitoring
 stations will exceed AQI > 150 (Lightly Polluted) 24 hours ahead.
 
-**Best model (Lv3 +Spatial):** AUC 0.782, F1 0.507, 17% cost reduction vs Persistence at 20:1 miss-to-false-alert ratio.
-
+**Best model (Lv5 +ASOS Weather):** AUC 0.790, F1 0.588, 17% cost reduction vs Persistence at 20:1 miss-to-false-alert ratio.
 
 ## Run
 
@@ -16,13 +15,14 @@ Open `DPA.Rproj` in RStudio, then in the console:
 source("R/data_pipeline.R")
 ```
 
-The pipeline auto-installs missing packages and creates output folders
-on first run. Takes 5–10 minutes end to end.
+The pipeline auto-installs missing packages (including `riem` for weather data download) and creates output folders on first run. Takes 5–10 minutes end to end.
+
+**Note:** The pipeline automatically downloads ASOS airport weather data via the `riem` package when you run it for the first time. No manual data download required.
 
 ## Layout
 
 ```
-R/                 source code (9 scripts)
+R/                 source code (10 scripts)
 data/              raw UCI CSVs (read-only)
 results/
   intermediate/    cleaned data, features, clusters
@@ -39,24 +39,31 @@ report.pdf         5-page project report
 |--------------------------|----------------------------------------------------------------|
 | `data_pipeline.R`        | Orchestrator — sources all scripts in order                    |
 | `clean_air_quality.R`    | Load 12 CSVs, LOCF gap-fill, AQI via HJ 633-2012               |
+| `download_weather.R`     | ASOS airport weather (ZBAA) via riem package                   |
 | `statistical_tests.R`    | ANOVA for station and season effects                           |
 | `eda_plots.R`            | Trend line, heatmap, station comparison, correlation           |
 | `time_series_analysis.R` | STL decomposition of daily mean AQI                            |
 | `spatial_analysis.R`     | Station coordinates, spatial AQI map                           |
 | `clustering_analysis.R`  | K-means (k=3), WSS elbow plot, zone labeling, PCA viz          |
-| `feature_engineering.R`  | Lags, rolling mean, wind U/V, neighbor pivot, cluster features |
-| `model_ladder.R`         | Lv0–Lv4 models, threshold tuning, cost & horizon analysis      |
+| `feature_engineering.R`  | Lags, rolling stats, wind U/V, neighbor pivot, ASOS merge      |
+| `model_ladder.R`         | Lv0–Lv5 models, threshold tuning, cost & horizon analysis      |
 
 ## Output Files
 
-| File                                     | Contents                                      |
-|------------------------------------------|-----------------------------------------------|
-| `results/final/ladder_results.csv`       | F1, AUC, Prec@90Rec for all 5 model levels    |
-| `results/final/multi_horizon_results.csv`| Performance across 6h, 24h, 48h, 72h horizons |
-| `results/final/cost_results.csv`         | Cost at 1:1, 5:1, 10:1, 20:1 miss ratios      |
-| `results/final/feature_importance.csv`   | XGBoost gain for all Lv4 features             |
+| File                                     | Contents                                       |
+|------------------------------------------|------------------------------------------------|
+| `results/final/ladder_results.csv`       | F1, AUC, Prec@90Rec for all 6 model levels     |
+| `results/final/multi_horizon_results.csv`| Performance across 6h, 24h, 48h, 72h horizons  |
+| `results/final/cost_results.csv`         | Cost at 1:1, 5:1, 10:1, 20:1 miss ratios       |
+| `results/final/feature_importance.csv`   | XGBoost gain for all Lv5 features              |
 
 ## Data
 
+**Primary Dataset:**  
 UCI Machine Learning Repository, Beijing Multi-Site Air Quality Data Set:
 <https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data>
+
+**Additional Dataset:**  
+ASOS airport weather from Beijing Capital Airport (ZBAA), automatically downloaded via the `riem` R package from Iowa Environmental Mesonet when you run the pipeline. Provides atmospheric reanalysis (temperature, pressure, wind, moisture) not captured by the base UCI dataset. Powers Level 5 (+ASOS Weather) model.
+
+**Manual download not required** — the `download_weather.R` script handles this automatically.
